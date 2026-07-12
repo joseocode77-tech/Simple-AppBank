@@ -74,17 +74,16 @@ public class BankAccount {
         goals.add(new Goal(refactorAccount, saving));
         return true;
     }
-    //falta refactorizar
-    public void showGoals(){
+
+    public List<String> showGoals(){
+        List<String> listGoal = new ArrayList<>();
         if (!goals.isEmpty()){
-            System.out.println("Lista de Wardaditos: ");
             for (Goal goal : goals){
-                System.out.println(goal.getAccountGoal());
-                System.out.println(goal.getSaving());
+                listGoal.add(goal.getAccountGoal()+" S/."+goal.getSaving());
             }
-        } else {
-            System.out.println("No tienes Wardaditos creados");
+            return listGoal;
         }
+        return null;
     }
 
     public List<String> searchGoal(String search){

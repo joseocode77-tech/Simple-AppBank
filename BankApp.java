@@ -90,7 +90,15 @@ public class BankApp {
                     System.out.println("-----------------------------------");
                     break;
                 case 'b':
-                    bankAccount.showGoals();
+                    List<String> listGoal = bankAccount.showGoals();
+                    if (listGoal == null){
+                        System.out.println("No tiene Wardaditos creados");
+                        System.out.println("-----------------------------------");
+                        break;
+                    }
+                    for (String goal : listGoal){
+                        System.out.println(goal);
+                    }
                     System.out.println("-----------------------------------");
                     break;
                 case 'c':
@@ -99,15 +107,18 @@ public class BankApp {
                     List<String> results = bankAccount.searchGoal(search);
                     if (search.isBlank()) {
                         System.out.println("Debes ingresar al menos una letra");
+                        System.out.println("-----------------------------------");
                         break;
                     }
                     if (results.isEmpty()){
                         System.out.println("No se encontraron Wardaditos");
+                        System.out.println("-----------------------------------");
                         break;
                     }
                     System.out.println("Resultados de busqueda: ");
                     for (String result : results){
                         System.out.println(result);
+                        System.out.println("-----------------------------------");
                     }
                     break;
                 case 'd':
